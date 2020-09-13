@@ -16,12 +16,21 @@ public class EstudianteServices {
     @Autowired
     private EstudianteRepository estudianteRepository;
 
+    /**
+     * Crear estudiante
+     * @param estudiante
+     * @return
+     */
     @Transactional
     public Estudiante crearEstudiante(Estudiante estudiante) {
         estudianteRepository.save(estudiante);
         return estudiante;
     }
 
+    /**
+     * Retorna la lista de estudiantes
+     * @return
+     */
     public List<Estudiante> obtEstudiantes() {
         return estudianteRepository.findAll();
     }

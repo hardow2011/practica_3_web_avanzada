@@ -21,11 +21,21 @@ public class EstudianteController {
     @Autowired
     private EstudianteServices estudianteServices;
 
+    /**
+     * Listar los estudiantes
+     * @param model
+     * @return
+     */
     @GetMapping("/")
     public String listarEstudiantes(Model model) {
         return "listarEstudiantes";
     }
 
+    /**
+     * GET de crear estudiante
+     * @param model
+     * @return
+     */
     @GetMapping("/crear")
     public String crearEstudiante(Model model) {
         model.addAttribute("estudiante", new Estudiante());
@@ -34,11 +44,19 @@ public class EstudianteController {
         return "crearEstudiante";
     }
 
-    @PostMapping(path = "/crear", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String crearEstudiante() {
-        System.out.println("\n\n\n"+);
-        //TODO: process POST Estudiante estudiante;
-    }
+    
+    /**
+     * POST de crear estudiante.
+     * El atributo name de los campos input debe ser igual que...
+     * su campo correspondiente en el objeto.
+     * @param estudiante
+     * @return
+     */
+    @PostMapping("/crear")
+	public String crearEstudiante(Estudiante estudiante) {
+		System.out.println("\n\n\n"+estudiante.getTelefono()+"\n\n\n");
+		return "redirect:/estudiantes/crear";
+	}
     
     
 

@@ -17,15 +17,15 @@
         <form enctype="application/x-www-form-urlencoded" action=${direccionPost} method="post">
             <div class="form-group">
                 <label for="inputMatricula">Matrícula</label>
-                <input type="text" class="form-control" id="inputMatricula" name="inputMatricula" placeholder="Digite la matrícula">
+                <input type="text" class="form-control" id="inputMatricula" name="matricula" placeholder="Digite la matrícula">
             </div>
             <div class="form-group">
                 <label for="inputNombre">Nombre</label>
-                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Digite el nombre">
+                <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Digite el nombre">
             </div>
             <div class="form-group">
                 <label for="inputTelefono">Teléfono</label>
-                <input type="text" class="form-control" id="inputTelefono" name="inputTelefono" placeholder="Digite el teléfono">
+                <input type="text" class="form-control" id="inputTelefono" name="telefono" placeholder="Digite el teléfono">
             </div>
             <button type="submit" class="btn btn-primary float-right">Confirmar</button>
         </form>
