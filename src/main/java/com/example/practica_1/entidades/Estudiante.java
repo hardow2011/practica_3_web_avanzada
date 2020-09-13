@@ -11,7 +11,7 @@ public class Estudiante implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String matricula;
     private String nombre;
     private String telefono;
@@ -26,13 +26,13 @@ public class Estudiante implements Serializable {
         return telefono;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    // public void setId(int id) {
+    //     this.id = id;
+    // }
 
     public String getMatricula() {
         return matricula;
