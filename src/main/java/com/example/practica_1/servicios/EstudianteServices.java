@@ -17,7 +17,7 @@ public class EstudianteServices {
     private EstudianteRepository estudianteRepository;
 
     /**
-     * Crear estudiante
+     * Crear estudiante.
      * @param estudiante
      * @return
      */
@@ -28,7 +28,7 @@ public class EstudianteServices {
     }
 
     /**
-     * Retorna la lista de estudiantes
+     * Retorna la lista de estudiantes.
      * @return
      */
     public List<Estudiante> obtEstudiantes() {

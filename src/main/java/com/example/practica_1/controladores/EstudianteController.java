@@ -22,7 +22,7 @@ public class EstudianteController {
     private EstudianteServices estudianteServices;
 
     /**
-     * Listar los estudiantes
+     * Listar los estudiantes.
      * @param model
      * @return
      */
@@ -32,7 +32,7 @@ public class EstudianteController {
     }
 
     /**
-     * GET de crear estudiante
+     * GET de crear estudiante.
      * @param model
      * @return
      */
@@ -54,7 +54,8 @@ public class EstudianteController {
      */
     @PostMapping("/crear")
 	public String crearEstudiante(Estudiante estudiante) {
-		System.out.println("\n\n\n"+estudiante.getTelefono()+"\n\n\n");
+        estudianteServices.crearEstudiante(estudiante);
+        // Redirigir al controlador de crear.
 		return "redirect:/estudiantes/crear";
 	}
     
