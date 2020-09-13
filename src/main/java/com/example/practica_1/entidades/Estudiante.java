@@ -15,6 +15,10 @@ public class Estudiante implements Serializable {
     private String matricula;
     private String nombre;
     private String telefono;
+
+    public Estudiante() {
+        
+    }
     
     public Estudiante(String matricula, String nombre, String telefono) {
         this.matricula = matricula;
