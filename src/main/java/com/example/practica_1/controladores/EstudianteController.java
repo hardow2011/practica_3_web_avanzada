@@ -80,6 +80,12 @@ public class EstudianteController {
         return "redirect:/estudiantes";
     }
 
+    /**
+     * GET pata editar un estudiante dado su id
+     * @param model
+     * @param idEstudiante
+     * @return
+     */
     @GetMapping("/editar/{idEstudiante}")
     public String editarEstudiante(Model model, @PathVariable() Long idEstudiante) {
         Estudiante estudiante = estudianteServices.obtEstudiante(idEstudiante);
@@ -90,14 +96,26 @@ public class EstudianteController {
     }
 
 
+    /**
+     * POST para editar un estudiante con lo datos obtenidos del form.
+     * setId debe estar habilitado para que la función reciba el id...
+     * en el estudiante desde el form.
+     * @param estudiante
+     * @return
+     */
     @PostMapping("/editar")
     public String editarEstudiante(Estudiante estudiante){
-            // Estudiante estudiante = estudianteServices.obtEstudiante(idEstudiante);
-            // estudiante.setMatricula(estudianteEditado.getMatricula());
-            // estudiante.setNombre(estudianteEditado.getNombre());
-            // estudiante.setTelefono(estudianteEditado.getTelefono());
-            estudianteServices.actualizarEstudiante(estudiante);
-            return "redirect:/estudiantes";
+        estudianteServices.actualizarEstudiante(estudiante);
+        return "redirect:/estudiantes";
+    }
+
+    @GetMapping("/visualizar/{idEstudiante}")
+    public String visualizarEstudiante(Model model, @PathVariable() Long idEstudiante) {
+        Estudiante estudiante = estudianteServices.obtEstudiante(idEstudiante);
+        model.addAttribute("accion", "Visualizar");
+        model.addAttribute("estudiante", estudiante);
+        model.addAttribute("visualizar", true);
+        return "crearEstudiante";
     }
 
 }
