@@ -1,0 +1,4 @@
+/* Centrar la cabecera y contenido de las columnas de una tabla. */
+.table td, .table th{
+    text-align: center;
+}

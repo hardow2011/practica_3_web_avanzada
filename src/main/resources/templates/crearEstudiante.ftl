@@ -27,7 +27,7 @@
                 <label for="inputTelefono">Teléfono</label>
                 <input type="text" class="form-control" id="inputTelefono" name="telefono" placeholder="Digite el teléfono">
             </div>
-            <button type="submit" class="btn btn-primary float-right">Confirmar</button>
+            <button id="btnSubmitEstudiante" type="submit" class="btn btn-primary float-right">Confirmar</button>
         </form>
     </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

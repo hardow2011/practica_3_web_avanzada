@@ -28,6 +28,8 @@ public class EstudianteController {
      */
     @GetMapping("/")
     public String listarEstudiantes(Model model) {
+        model.addAttribute("accion", "Listar");
+        model.addAttribute("listaEstudiantes", estudianteServices.obtEstudiantes());
         return "listarEstudiantes";
     }
 
@@ -49,15 +51,16 @@ public class EstudianteController {
      * POST de crear estudiante.
      * El atributo name de los campos input debe ser igual que...
      * su campo correspondiente en el objeto.
-     * @param estudiante
+     * @param estudiante recibe un estudiante del form
      * @return
      */
     @PostMapping("/crear")
 	public String crearEstudiante(Estudiante estudiante) {
+        // Crear el estudiante en la BD.
         estudianteServices.crearEstudiante(estudiante);
         // Redirigir al controlador de crear.
 		return "redirect:/estudiantes/crear";
-	}
+    }
     
     
 
