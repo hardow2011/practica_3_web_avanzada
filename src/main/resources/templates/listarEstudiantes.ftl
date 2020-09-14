@@ -14,6 +14,7 @@
         <div class="jumbotron">
             <h1 class="display-4 text-center">${accion} estudiantes</h1>
         </div>
+            <a href="/estudiantes/crear" class="btn btn-primary float-right">Nuevo estudiante</a>
         <div class="table-responsive">
             <table class="table table-stripped">
                 <thead>

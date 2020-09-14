@@ -2,3 +2,9 @@
 .table td, .table th{
     text-align: center;
 }
+
+/* El elemento a que sigue directamente a los elementos con clase jumbotron...
+por ejemplo, el boton de nuevo estudiante en el listado de estudiantes. */
+.jumbotron + a{
+    margin-bottom: 10px;
+}

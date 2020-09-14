@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,10 +24,11 @@ public class EstudianteController {
 
     /**
      * Listar los estudiantes.
+     * El value del mapping puede ser "/estudiantes/" o "/estudiantes".
      * @param model
      * @return
      */
-    @GetMapping("/")
+    @GetMapping({"/", ""})
     public String listarEstudiantes(Model model) {
         model.addAttribute("accion", "Listar");
         model.addAttribute("listaEstudiantes", estudianteServices.obtEstudiantes());
@@ -62,6 +64,11 @@ public class EstudianteController {
 		return "redirect:/estudiantes/crear";
     }
     
-    
+    @GetMapping("/eliminar/{idEstudiante}")
+    public String eliminarEstudiante(@PathVariable() Long idEstudiante) {
+        Estudiante estudiante = estudianteServices.obtEstudiante(idEstudiante);
+        estudianteServices.eliminarEstudiante(estudiante);
+        return "redirect:/estudiantes";
+    }
 
 }
