@@ -35,7 +35,8 @@ public class EstudianteServices {
     public Estudiante obtEstudiante(long idEstudiante) {
         // Se usa get() porque es estudianteRepository.findById(idEstudiante)...
         // retorna Optional<Estudiante> y hay que conseguir el estudiante con get().
-        return estudianteRepository.findById(idEstudiante).get();
+        Estudiante estudiante = estudianteRepository.findById(idEstudiante).get();
+        return estudiante;
 
     }
 
@@ -49,6 +50,15 @@ public class EstudianteServices {
     
     public void eliminarEstudiante(Estudiante estudiante) {
         estudianteRepository.delete(estudiante);
+    }
+
+    /**
+     * Actualiza un estudiante y lo devuelve
+     * @param estudiante
+     * @return
+     */
+    public Estudiante actualizarEstudiante(Estudiante estudiante) {
+        return estudianteRepository.save(estudiante);
     }
 
 }

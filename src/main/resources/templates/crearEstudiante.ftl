@@ -15,17 +15,26 @@
             <h1 class="display-4 text-center">${accion} estudiante</h1>
         </div>
         <form enctype="application/x-www-form-urlencoded" action=${direccionPost} method="post">
+            <#--  El objeto new Estudiante() enviado del servidor tiene id = 0...
+            entonces si el id es diferente de 0, es que el onjeto se está...
+            editando, no creando, por lo tanto, se visualizará el id.  -->
+            <#if estudiante.id != 0>
+                <div class="form-group">
+                    <label for="inputId">Id</label>
+                    <input readonly="true" type="number" class="form-control" id="inputId" name="id" value="${(estudiante.id)!}" placeholder="Digite la matrícula">
+                </div>
+            </#if>
             <div class="form-group">
                 <label for="inputMatricula">Matrícula</label>
-                <input type="text" class="form-control" id="inputMatricula" name="matricula" placeholder="Digite la matrícula">
+                <input type="text" class="form-control" id="inputMatricula" name="matricula" value="${(estudiante.matricula)!}" placeholder="Digite la matrícula">
             </div>
             <div class="form-group">
                 <label for="inputNombre">Nombre</label>
-                <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Digite el nombre">
+                <input type="text" class="form-control" id="inputNombre" name="nombre" value="${(estudiante.nombre)!}" placeholder="Digite el nombre">
             </div>
             <div class="form-group">
                 <label for="inputTelefono">Teléfono</label>
-                <input type="text" class="form-control" id="inputTelefono" name="telefono" placeholder="Digite el teléfono">
+                <input type="text" class="form-control" id="inputTelefono" name="telefono" value="${(estudiante.telefono)!}" placeholder="Digite el teléfono">
             </div>
             <button id="btnSubmitEstudiante" type="submit" class="btn btn-primary float-right">Confirmar</button>
         </form>

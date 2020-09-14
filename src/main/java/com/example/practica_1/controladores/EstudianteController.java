@@ -6,13 +6,17 @@ import com.fasterxml.jackson.core.io.SegmentedStringWriter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -37,7 +41,7 @@ public class EstudianteController {
 
     /**
      * GET de crear estudiante.
-     * @param model
+     * @param moidEstudiantedel
      * @return
      */
     @GetMapping("/crear")
@@ -64,11 +68,36 @@ public class EstudianteController {
 		return "redirect:/estudiantes/crear";
     }
     
+    /**
+     * Eliminar un estudiante teniendo su id
+     * @param idEstudiante
+     * @return
+     */
     @GetMapping("/eliminar/{idEstudiante}")
     public String eliminarEstudiante(@PathVariable() Long idEstudiante) {
         Estudiante estudiante = estudianteServices.obtEstudiante(idEstudiante);
         estudianteServices.eliminarEstudiante(estudiante);
         return "redirect:/estudiantes";
+    }
+
+    @GetMapping("/editar/{idEstudiante}")
+    public String editarEstudiante(Model model, @PathVariable() Long idEstudiante) {
+        Estudiante estudiante = estudianteServices.obtEstudiante(idEstudiante);
+        model.addAttribute("accion", "Editar");
+        model.addAttribute("estudiante", estudiante);
+        model.addAttribute("direccionPost", "/estudiantes/editar");
+        return "crearEstudiante";
+    }
+
+
+    @PostMapping("/editar")
+    public String editarEstudiante(Estudiante estudiante){
+            // Estudiante estudiante = estudianteServices.obtEstudiante(idEstudiante);
+            // estudiante.setMatricula(estudianteEditado.getMatricula());
+            // estudiante.setNombre(estudianteEditado.getNombre());
+            // estudiante.setTelefono(estudianteEditado.getTelefono());
+            estudianteServices.actualizarEstudiante(estudiante);
+            return "redirect:/estudiantes";
     }
 
 }

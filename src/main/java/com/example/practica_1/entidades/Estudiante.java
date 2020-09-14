@@ -34,9 +34,9 @@ public class Estudiante implements Serializable {
         return id;
     }
 
-    // public void setId(int id) {
-    //     this.id = id;
-    // }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getMatricula() {
         return matricula;
