@@ -34,6 +34,8 @@ public class Estudiante implements Serializable {
         return id;
     }
 
+    // setId debe estar habilitado para que el id pueda pasar de la vista...
+    // al controlador a la hora de editar.
     public void setId(int id) {
         this.id = id;
     }
