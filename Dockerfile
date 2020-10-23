@@ -3,10 +3,10 @@
 
 # El comando FROM indica la imagen base.
 # openjdk:11.0.7-jre-slim-buster es una imagen de Java 11 lo mas ligera posible
-FROM openjdk:11.0.7-jre-slim-buster
+FROM openjdk:8-jdk-alpine
 
 # Quien mantiene la versión.
-LABEL maintainer="Louvens Raphaek <20170639@ce.pucmm.edu.do>"
+LABEL maintainer="Louvens Raphael <20170639@ce.pucmm.edu.do>"
 
 # Añadiendo el punto de montaje en el host
 # Por defecto Tomcat crea los archivo temporales en esa ruta,
